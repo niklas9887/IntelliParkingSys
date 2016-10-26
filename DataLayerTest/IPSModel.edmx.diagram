@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7bc8b11fb8e445809d849e75e014ebfb" Name="Diagram1">
+        <EntityTypeShape EntityType="IPSModel.KameraParkplatzSet" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.KameraSet" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.ParkplatzartSet" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.ParkplatzSet" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.ReservierungSet" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="IPSModel.FK_KameraParkplatzKamera" ManuallyRouted="false" />
+        <AssociationConnector Association="IPSModel.FK_KameraParkplatzParkplatz" ManuallyRouted="false" />
+        <AssociationConnector Association="IPSModel.FK_ParkplatzParkplatzart" ManuallyRouted="false" />
+        <AssociationConnector Association="IPSModel.FK_ReservierungParkplatz" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

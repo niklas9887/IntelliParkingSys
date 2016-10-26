@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="4b6fef02-dbb8-4f2e-9bfa-d4e41f7c1aa1" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="d3437ec7-eecc-4ed3-ba99-d6acbc2ddfd3" name="Comment1">
+      <body>WSDL-Schnittstelle
+-Methodendefinition
+-Zugriff über http
+-Übertragung von Objekten in JSON</body>
+    </comment>
+    <comment Id="d88b09f7-a657-49ea-84d1-fa505687b158" name="Comment11">
+      <body>WSDL-Schnittstelle
+-Methodendefinition
+-Zugriff über http
+-Übertragung von Objekten in JSON</body>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="8a99dc08-c387-482d-ab9d-5af9c507bab6" name="MSSQL-Datenbank">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="d6f3cf0e-ebe0-440b-ab73-52452d0eb62f" direction="Bidirectional">
+          <layerMoniker Id="54cff2fc-cbc7-4c92-9268-2960bcf30820" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="2c3dee71-ac38-4dc6-81d6-1c33036409ad" name="REST-Webservice&#xD;&#xA;C#" />
+    <layer Id="4fd0c239-a17a-4d22-9f68-21e07243e610" name="Mobile Applikation&#xD;&#xA;HTML, Javascript, PHP3&#xD;&#xA;" />
+    <layer Id="a6b3bb62-b010-4e67-bbf3-7d4803f70758" name="DHBW&#xD;&#xA;&#xD;&#xA;SERVER" />
+    <layer Id="54cff2fc-cbc7-4c92-9268-2960bcf30820" name="ado.Net OR-Mapper">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="00ce533f-01e9-4bba-b17c-ebb5807c6d07" direction="Bidirectional">
+          <layerMoniker Id="2c3dee71-ac38-4dc6-81d6-1c33036409ad" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="03cfb138-7c47-4394-8979-3048448827f9" name="Mobile Applikation&#xD;&#xA;HTML, Javascript, PHP" />
+    <layer Id="9f721353-5110-4942-ade4-53ebaf9d2368" name="DHBW SERVER">
+      <childLayers>
+        <layer Id="a759ab33-adcf-4670-982b-3c5f3bc8950c" name="MSSQL-Datenbank" />
+        <layer Id="9c057a37-51ec-41bf-9883-f7f74a1d7a32" name="REST-Webservice&#xD;&#xA;C#" />
+      </childLayers>
+    </layer>
+    <layer Id="0a28fe73-9630-42b8-b8a3-796b40038e0f" name="ado.Net OR-Mapper&#xD;&#xA;" />
+  </layers>
+</layerModel>

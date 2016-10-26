@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IPSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="KameraParkplatzSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kamera_Id" Type="int" Nullable="false" />
+          <Property Name="Parkplatz_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KameraSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Etage" Type="int" Nullable="false" />
+          <Property Name="Sonstiges" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ParkplatzartSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Art" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ParkplatzSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nummer" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Etage" Type="int" Nullable="false" />
+          <Property Name="Parkplatzart_Id" Type="int" Nullable="false" />
+          <Property Name="Zustand" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ReservierungSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Datum" Type="datetime" Nullable="false" />
+          <Property Name="User" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Nummernschild" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Parkplatz_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_KameraParkplatzKamera">
+          <End Role="KameraSet" Type="Self.KameraSet" Multiplicity="1" />
+          <End Role="KameraParkplatzSet" Type="Self.KameraParkplatzSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KameraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KameraParkplatzSet">
+              <PropertyRef Name="Kamera_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KameraParkplatzParkplatz">
+          <End Role="ParkplatzSet" Type="Self.ParkplatzSet" Multiplicity="1" />
+          <End Role="KameraParkplatzSet" Type="Self.KameraParkplatzSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParkplatzSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KameraParkplatzSet">
+              <PropertyRef Name="Parkplatz_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParkplatzParkplatzart">
+          <End Role="ParkplatzartSet" Type="Self.ParkplatzartSet" Multiplicity="1" />
+          <End Role="ParkplatzSet" Type="Self.ParkplatzSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParkplatzartSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ParkplatzSet">
+              <PropertyRef Name="Parkplatzart_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservierungParkplatz">
+          <End Role="ParkplatzSet" Type="Self.ParkplatzSet" Multiplicity="1" />
+          <End Role="ReservierungSet" Type="Self.ReservierungSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParkplatzSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReservierungSet">
+              <PropertyRef Name="Parkplatz_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IPSModelStoreContainer">
+          <EntitySet Name="KameraParkplatzSet" EntityType="Self.KameraParkplatzSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KameraSet" EntityType="Self.KameraSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ParkplatzartSet" EntityType="Self.ParkplatzartSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ParkplatzSet" EntityType="Self.ParkplatzSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReservierungSet" EntityType="Self.ReservierungSet" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_KameraParkplatzKamera" Association="Self.FK_KameraParkplatzKamera">
+            <End Role="KameraSet" EntitySet="KameraSet" />
+            <End Role="KameraParkplatzSet" EntitySet="KameraParkplatzSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KameraParkplatzParkplatz" Association="Self.FK_KameraParkplatzParkplatz">
+            <End Role="ParkplatzSet" EntitySet="ParkplatzSet" />
+            <End Role="KameraParkplatzSet" EntitySet="KameraParkplatzSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParkplatzParkplatzart" Association="Self.FK_ParkplatzParkplatzart">
+            <End Role="ParkplatzartSet" EntitySet="ParkplatzartSet" />
+            <End Role="ParkplatzSet" EntitySet="ParkplatzSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservierungParkplatz" Association="Self.FK_ReservierungParkplatz">
+            <End Role="ParkplatzSet" EntitySet="ParkplatzSet" />
+            <End Role="ReservierungSet" EntitySet="ReservierungSet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IPSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="KameraParkplatzSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kamera_Id" Type="Int32" Nullable="false" />
+          <Property Name="Parkplatz_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="KameraSet" Relationship="Self.FK_KameraParkplatzKamera" FromRole="KameraParkplatzSet" ToRole="KameraSet" />
+          <NavigationProperty Name="ParkplatzSet" Relationship="Self.FK_KameraParkplatzParkplatz" FromRole="KameraParkplatzSet" ToRole="ParkplatzSet" />
+        </EntityType>
+        <EntityType Name="KameraSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Etage" Type="Int32" Nullable="false" />
+          <Property Name="Sonstiges" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="KameraParkplatzSets" Relationship="Self.FK_KameraParkplatzKamera" FromRole="KameraSet" ToRole="KameraParkplatzSet" />
+        </EntityType>
+        <EntityType Name="ParkplatzartSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Art" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ParkplatzSets" Relationship="Self.FK_ParkplatzParkplatzart" FromRole="ParkplatzartSet" ToRole="ParkplatzSet" />
+        </EntityType>
+        <EntityType Name="ParkplatzSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nummer" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Etage" Type="Int32" Nullable="false" />
+          <Property Name="Parkplatzart_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="KameraParkplatzSets" Relationship="Self.FK_KameraParkplatzParkplatz" FromRole="ParkplatzSet" ToRole="KameraParkplatzSet" />
+          <NavigationProperty Name="ParkplatzartSet" Relationship="Self.FK_ParkplatzParkplatzart" FromRole="ParkplatzSet" ToRole="ParkplatzartSet" />
+          <NavigationProperty Name="ReservierungSets" Relationship="Self.FK_ReservierungParkplatz" FromRole="ParkplatzSet" ToRole="ReservierungSet" />
+          <Property Name="Zustand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ReservierungSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Datum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="User" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nummernschild" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Parkplatz_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ParkplatzSet" Relationship="Self.FK_ReservierungParkplatz" FromRole="ReservierungSet" ToRole="ParkplatzSet" />
+        </EntityType>
+        <Association Name="FK_KameraParkplatzKamera">
+          <End Role="KameraSet" Type="Self.KameraSet" Multiplicity="1" />
+          <End Role="KameraParkplatzSet" Type="Self.KameraParkplatzSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KameraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KameraParkplatzSet">
+              <PropertyRef Name="Kamera_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KameraParkplatzParkplatz">
+          <End Role="ParkplatzSet" Type="Self.ParkplatzSet" Multiplicity="1" />
+          <End Role="KameraParkplatzSet" Type="Self.KameraParkplatzSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParkplatzSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KameraParkplatzSet">
+              <PropertyRef Name="Parkplatz_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParkplatzParkplatzart">
+          <End Role="ParkplatzartSet" Type="Self.ParkplatzartSet" Multiplicity="1" />
+          <End Role="ParkplatzSet" Type="Self.ParkplatzSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParkplatzartSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ParkplatzSet">
+              <PropertyRef Name="Parkplatzart_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservierungParkplatz">
+          <End Role="ParkplatzSet" Type="Self.ParkplatzSet" Multiplicity="1" />
+          <End Role="ReservierungSet" Type="Self.ReservierungSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParkplatzSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReservierungSet">
+              <PropertyRef Name="Parkplatz_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IPSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="KameraParkplatzSets" EntityType="Self.KameraParkplatzSet" />
+          <EntitySet Name="KameraSets" EntityType="Self.KameraSet" />
+          <EntitySet Name="ParkplatzartSets" EntityType="Self.ParkplatzartSet" />
+          <EntitySet Name="ParkplatzSets" EntityType="Self.ParkplatzSet" />
+          <EntitySet Name="ReservierungSets" EntityType="Self.ReservierungSet" />
+          <AssociationSet Name="FK_KameraParkplatzKamera" Association="Self.FK_KameraParkplatzKamera">
+            <End Role="KameraSet" EntitySet="KameraSets" />
+            <End Role="KameraParkplatzSet" EntitySet="KameraParkplatzSets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KameraParkplatzParkplatz" Association="Self.FK_KameraParkplatzParkplatz">
+            <End Role="ParkplatzSet" EntitySet="ParkplatzSets" />
+            <End Role="KameraParkplatzSet" EntitySet="KameraParkplatzSets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParkplatzParkplatzart" Association="Self.FK_ParkplatzParkplatzart">
+            <End Role="ParkplatzartSet" EntitySet="ParkplatzartSets" />
+            <End Role="ParkplatzSet" EntitySet="ParkplatzSets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservierungParkplatz" Association="Self.FK_ReservierungParkplatz">
+            <End Role="ParkplatzSet" EntitySet="ParkplatzSets" />
+            <End Role="ReservierungSet" EntitySet="ReservierungSets" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IPSModelStoreContainer" CdmEntityContainer="IPSEntities">
+          <EntitySetMapping Name="KameraParkplatzSets">
+            <EntityTypeMapping TypeName="IPSModel.KameraParkplatzSet">
+              <MappingFragment StoreEntitySet="KameraParkplatzSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Kamera_Id" ColumnName="Kamera_Id" />
+                <ScalarProperty Name="Parkplatz_Id" ColumnName="Parkplatz_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KameraSets">
+            <EntityTypeMapping TypeName="IPSModel.KameraSet">
+              <MappingFragment StoreEntitySet="KameraSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Etage" ColumnName="Etage" />
+                <ScalarProperty Name="Sonstiges" ColumnName="Sonstiges" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParkplatzartSets">
+            <EntityTypeMapping TypeName="IPSModel.ParkplatzartSet">
+              <MappingFragment StoreEntitySet="ParkplatzartSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Art" ColumnName="Art" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParkplatzSets">
+            <EntityTypeMapping TypeName="IPSModel.ParkplatzSet">
+              <MappingFragment StoreEntitySet="ParkplatzSet">
+                <ScalarProperty Name="Zustand" ColumnName="Zustand" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nummer" ColumnName="Nummer" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Etage" ColumnName="Etage" />
+                <ScalarProperty Name="Parkplatzart_Id" ColumnName="Parkplatzart_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReservierungSets">
+            <EntityTypeMapping TypeName="IPSModel.ReservierungSet">
+              <MappingFragment StoreEntitySet="ReservierungSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="Nummernschild" ColumnName="Nummernschild" />
+                <ScalarProperty Name="Parkplatz_Id" ColumnName="Parkplatz_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

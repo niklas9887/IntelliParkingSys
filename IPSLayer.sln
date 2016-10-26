@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{A662B560-F9B8-4D50-B1E4-C769F043B782}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{0D327183-7C99-4D45-A689-377083A658E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalTestConsole", "LocalTestConsole\LocalTestConsole.csproj", "{BABE40C5-A6C9-4905-8210-42A577116C57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayerTest", "DataLayerTest\DataLayerTest.csproj", "{BC7DAFA6-C9A7-4226-94DD-BD77B4D4B2CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{F18762E6-DFE0-4D43-965B-CE8180B57333}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceHoster", "ServiceHoster\ServiceHoster.csproj", "{462AF407-A696-451E-8DEB-B50E07FA7C5B}"
+EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ModelIPS", "ModelIPS\ModelIPS.modelproj", "{C9AF5D29-5FFC-48C6-A2CA-8F814B2C535E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A662B560-F9B8-4D50-B1E4-C769F043B782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A662B560-F9B8-4D50-B1E4-C769F043B782}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A662B560-F9B8-4D50-B1E4-C769F043B782}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A662B560-F9B8-4D50-B1E4-C769F043B782}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D327183-7C99-4D45-A689-377083A658E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D327183-7C99-4D45-A689-377083A658E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D327183-7C99-4D45-A689-377083A658E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D327183-7C99-4D45-A689-377083A658E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BABE40C5-A6C9-4905-8210-42A577116C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BABE40C5-A6C9-4905-8210-42A577116C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BABE40C5-A6C9-4905-8210-42A577116C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BABE40C5-A6C9-4905-8210-42A577116C57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC7DAFA6-C9A7-4226-94DD-BD77B4D4B2CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC7DAFA6-C9A7-4226-94DD-BD77B4D4B2CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC7DAFA6-C9A7-4226-94DD-BD77B4D4B2CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC7DAFA6-C9A7-4226-94DD-BD77B4D4B2CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F18762E6-DFE0-4D43-965B-CE8180B57333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F18762E6-DFE0-4D43-965B-CE8180B57333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F18762E6-DFE0-4D43-965B-CE8180B57333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F18762E6-DFE0-4D43-965B-CE8180B57333}.Release|Any CPU.Build.0 = Release|Any CPU
+		{462AF407-A696-451E-8DEB-B50E07FA7C5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{462AF407-A696-451E-8DEB-B50E07FA7C5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{462AF407-A696-451E-8DEB-B50E07FA7C5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{462AF407-A696-451E-8DEB-B50E07FA7C5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9AF5D29-5FFC-48C6-A2CA-8F814B2C535E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9AF5D29-5FFC-48C6-A2CA-8F814B2C535E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9AF5D29-5FFC-48C6-A2CA-8F814B2C535E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9AF5D29-5FFC-48C6-A2CA-8F814B2C535E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://193.196.175.149:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DataLayer\\DataLayer.csproj
+		SccProjectName1 = DataLayer
+		SccLocalPath1 = DataLayer
+		SccProjectUniqueName2 = Service\\Service.csproj
+		SccProjectName2 = Service
+		SccLocalPath2 = Service
+		SccProjectUniqueName3 = LocalTestConsole\\LocalTestConsole.csproj
+		SccProjectName3 = LocalTestConsole
+		SccLocalPath3 = LocalTestConsole
+		SccProjectUniqueName4 = DataLayerTest\\DataLayerTest.csproj
+		SccProjectName4 = DataLayerTest
+		SccLocalPath4 = DataLayerTest
+		SccProjectUniqueName5 = UnitTests\\UnitTests.csproj
+		SccProjectName5 = UnitTests
+		SccLocalPath5 = UnitTests
+		SccProjectUniqueName6 = ServiceHoster\\ServiceHoster.csproj
+		SccProjectName6 = ServiceHoster
+		SccLocalPath6 = ServiceHoster
+		SccProjectUniqueName7 = ModelIPS\\ModelIPS.modelproj
+		SccProjectName7 = ModelIPS
+		SccLocalPath7 = ModelIPS
+	EndGlobalSection
+EndGlobal
